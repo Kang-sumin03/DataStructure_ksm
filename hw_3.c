@@ -1,0 +1,133 @@
+﻿//[과제1] 포인터 배열을 이용해 문자열 저장하고 출력하기
+/* #include <stdio.h>
+
+int main(void)
+{
+    char* mapo[4] = { "Korea", "Seoul", "Mapo", "152번지 2/3" };
+    char *jongno[4] = { "Korea", "Seoul", "Jongno", "152번지 2/3" };
+
+    for (int i = 0; i < 4; i++) {
+        printf("%s\n", mapo[i]);
+    }
+
+    for (int i = 0; i < 4; i++) {
+        printf("%s\n", jongno[i]);
+    }
+
+    return 0;
+}*/
+
+
+//[과제2] 1차원 배열을 이용해 문자열 입력 및 길이 계산
+/*#include <stdio.h>
+
+int main(void)
+{
+    char str[100];
+    int length = 0;
+
+    printf("문자열을 입력하세요: ");
+    scanf("%s", str);
+
+    while (str[length] != '\0') {
+        length++;
+    }
+
+    printf("입력된 문자열은 \n");
+	printf("%s\n", str);
+    printf("입니다.\n");
+    printf("입력된 문자열의 길이= %d\n", length);
+
+	return 0;
+}*/
+
+//[과제2] 3차원 배열 입출력하기!
+/*#include <stdio.h>
+
+int main() {
+
+		int val[2][3][4] = { 0, };  //{0, } 모든 요소를 0으로 초기화하는 방법
+
+        for (int i = 0; i < 2; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                for (int k = 0; k < 4; ++k) {
+                    scanf_s("%d", &val[i][j][k]);
+                }
+            }
+        }
+
+        for (int i = 0; i < 2; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                for (int k = 0; k < 4; ++k) {
+                    printf("array [%d] [%d] [%d] = %d\n", i, j, k,val[i][j][k]);
+                }
+            }
+        }
+
+    return 0;
+
+}*/
+
+//[과제3] 3차원 배열을 이용해 문자배열 입출력하기
+#include <stdio.h>
+
+int main() {
+    char str[2][3][20];
+
+    for (int i = 0; i < 2; i++) {
+        for (int j=0; j <3; j++) {
+            if (j == 0) printf("학생 %d의 이름 : ", i + 1);
+            else if (j == 1) printf("학생 %d의 학과 : ", i + 1);
+            else printf("학생 %d의 학번 : ", i + 1);
+
+
+			//띄어쓰기 포함 입력 받기 위해서 fgets 사용
+            fgets(str[i][j], 20, stdin);
+            str[i][j][strcspn(str[i][j], "\n")] = '\0';
+        }
+        printf("\n");
+    }
+
+    for (int i = 0; i < 2; i++) {
+        printf("학생 %d\n", i + 1);
+
+        for (int j = 0; j < 3; j++) {
+            printf("    %s\n", str[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+// [과제4] 재귀함수호출을 이용해 팩토리얼 값 구하기
+/* #include <stdio.h>
+
+int fact(int n);
+
+int main (void)
+{
+    int num = 0;
+    int result = 0;
+    printf("정수를 입력하세요 : ");
+	scanf_s("%d", &num);
+
+    result = fact(num);
+
+	printf("%d의 팩토리얼 값은 %d입니다.\n", num, result);
+
+    return 0;
+}
+
+int fact(int n) {
+	printf("fact(%d) 호출!\n", n);
+
+    if (n <= 1) {
+        return(1);
+    }
+    else {
+        int result= n * fact(n - 1);
+		printf("fact(%d) 반환!\n", n, result);
+        return result;
+    }
+}*/
